@@ -1,0 +1,4 @@
+---
+# tasks file for roles/main
+- include_tasks: update-playbook.yml
+- include_tasks: reboot-required.yml

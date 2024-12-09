@@ -1,0 +1,11 @@
+- hosts: all
+  become: yes
+  gather_facts: yes
+  vars_files:
+    - vault/.vault_servers.yml
+    - vault/.vault_radocks.yml
+    - vault/.vault_ansible.yml
+  roles:
+    - maintenance_man
+  tags:
+    - all, servers

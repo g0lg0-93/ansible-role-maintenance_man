@@ -1,0 +1,14 @@
+
+  - name: Update all installed packages using APT module
+    apt:
+      name: '*'
+      state: latest
+      update_cache: yes
+      only_upgrade: yes
+    register: apt_update_status
+    tags: installation, latest
+
+  - name: Remove packages not needed anymore
+    apt:
+      autoremove: yes
+    tags: installation, prune
