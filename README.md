@@ -4,5 +4,5 @@ This is used to perform updates on your linux machines. A reboot check is also c
 ## Requirements
 None.
 
-## Commands
+## Command
 ansible-playbook -i hosts playbook.yml
