@@ -1,6 +1,5 @@
 # Environment variables
 vault/
-*.txt
 *.cfg
 hosts
 tmp/

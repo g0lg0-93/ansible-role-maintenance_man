@@ -1,0 +1,26 @@
+---
+  - name: Update all installed packages using APT module
+    apt:
+      name: '*'
+      state: latest
+      update_cache: yes
+      only_upgrade: yes
+      cache_valid_time: 86400 # 1 day
+    register: apt_update_status
+    tags: installation, latest
+
+  - name: Install the latest version of unbound
+    ansible.builtin.package:
+      name:
+        - unbound
+      state: latest
+
+  - name: Copy 'unbound' config file to remote host ## https://docs.pi-hole.net/guides/dns/unbound/#configure-unbound ##
+    copy:
+      src: ../files/pi-hole.conf
+      dest: /etc/unbound/unbound.conf.d/pi-hole.conf
+
+  - name: Restart unbound service ## The config file will be in-use after this restart ##
+    ansible.builtin.service:
+      name: unbound
+      state: restarted

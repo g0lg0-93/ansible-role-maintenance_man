@@ -5,6 +5,7 @@
       state: latest
       update_cache: yes
       only_upgrade: yes
+      cache_valid_time: 86400 #One day
     register: apt_update_status
     tags: installation, latest
 
