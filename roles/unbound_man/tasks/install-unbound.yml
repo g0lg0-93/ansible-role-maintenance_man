@@ -9,18 +9,19 @@
     register: apt_update_status
     tags: installation, latest
 
-  - name: Install the latest version of unbound
+  - name: Install the latest version of unbound, dnsutils & python-setuptools
     ansible.builtin.package:
       name:
         - unbound
+        - dnsutils
       state: latest
-
+  
   - name: Copy 'unbound' config file to remote host ## https://docs.pi-hole.net/guides/dns/unbound/#configure-unbound ##
     copy:
       src: ../files/pi-hole.conf
-      dest: /etc/unbound/unbound.conf.d/pi-hole.conf
+      dest: "{{ unbound_directory }}/pi-hole.conf"
+    notify: Restart unbound service
 
-  - name: Restart unbound service ## The config file will be in-use after this restart ##
-    ansible.builtin.service:
-      name: unbound
-      state: restarted
+  - name: Test unbound functionality using dig
+    ansible.builtin.debug:
+      msg: "Querying loopback for IPv4 address for pi-hole.net. produces {{ lookup('community.general.dig', 'pi-hole.net', '@127.0.0.1:5335') }}"

@@ -1,8 +1,17 @@
-# Ansible Role: Maintenance_man
-This is used to perform updates on your linux machines. A reboot check is also conducted, if it's required a reboot is conducted.
+# the Maintenance Man
+Creating various roles to perform various tasks. 
+
+Currently we have:
+* Perform Update & Reboots (if required)
+* Install unbound DNS
 
 ## Requirements
-None.
+* Ansible
 
-## Command
-ansible-playbook -i hosts playbook.yml
+### Usage
+Be sure to amend the `hosts:` portion of the playbook to the appropriate group of hosts. Otherwise, 
+`hosts: all` will target all hosts. 
+You can reference the appropriate playbook in the root directory.
+`ansible-playbook <playbook file>`
+_ Make sure your 'ansible.cfg' file knows your inventory, otherwise run the command like this: _
+`ansible-playbook -i <inventory file> <playbook file>` 

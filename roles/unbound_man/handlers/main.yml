@@ -1,0 +1,5 @@
+---
+  - name: Restart unbound service ## The config file will be in-use after this restart ##
+    ansible.builtin.service:
+      name: unbound
+      state: restarted
