@@ -1,0 +1,34 @@
+---
+# Default values for the fail2ban ansible module
+fail2ban_loglevel: INFO
+fail2ban_logtarget: /var/log/fail2ban.log
+fail2ban_syslog_target: /var/log/fail2ban.log
+fail2ban_syslog_facility: 1
+fail2ban_socket: /var/run/fail2ban/fail2ban.sock
+fail2ban_pidfile: /var/run/fail2ban/fail2ban.pid
+fail2ban_ignoreips: 
+  - 127.0.0.1/8
+fail2ban_bantime: 10m
+fail2ban_findtime: 10m
+fail2ban_maxretry: 3
+fail2ban_backend: auto
+fail2ban_usedns: warn
+fail2ban_destemail: root@localhost
+fail2ban_sendername: Fail2Ban
+fail2ban_banaction: iptables-multiport
+fail2ban_mta: sendmail
+fail2ban_protocol: tcp
+fail2ban_chain: INPUT
+fail2ban_action: '%(action_)s'
+fail2ban_services:
+  - name: sshd
+
+# Default values for the ssh section of the fail2ban ansible module
+fail2ban_sshd_enabled: true
+fail2ban_sshd_port: sshd
+fail2ban_sshd_filter: sshd
+#fail2ban_sshd_backend: backend
+fail2ban_sshd_logpath: /var/log/auth.log
+fail2ban_sshd_maxretry: 3
+fail2ban_sshd_bantime: 120
+fail2ban_sshd_ignoreip: whitelist-IP

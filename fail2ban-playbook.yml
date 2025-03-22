@@ -1,0 +1,9 @@
+- hosts: pitstop
+  become: yes
+  gather_facts: yes
+  vars_files:
+    - vault/.vault_pitstop.yml
+  roles:
+    - fail2ban
+  tags:
+    - all, servers

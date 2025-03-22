@@ -1,0 +1,8 @@
+[sshd]
+enabled = {{ fail2ban_sshd_enabled }}
+port = {{ fail2ban_sshd_port }}
+filter = {{ fail2ban_sshd_filter }}
+logpath = {{ fail2ban_sshd_logpath }}
+bantime = {{ fail2ban_sshd_bantime }}
+maxretry = {{ fail2ban_sshd_maxretry }}
+ignoreip = {{ fail2ban_sshd_ignoreip }}

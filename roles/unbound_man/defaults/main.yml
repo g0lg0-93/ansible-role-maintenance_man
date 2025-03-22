@@ -1,0 +1,3 @@
+---
+# defaults for unbound
+unbound_directory: /etc/unbound/unbound.conf.d
