@@ -2,7 +2,7 @@
   become: yes
   gather_facts: yes
   vars_files:
-    - vault/.vault_servers.yml
+    - vault/.vault_pitstop.yml
   roles:
     - fail2ban
   tags:

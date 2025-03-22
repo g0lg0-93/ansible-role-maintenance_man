@@ -5,6 +5,8 @@
     - vault/.vault_servers.yml
     - vault/.vault_radocks.yml
     - vault/.vault_ansible.yml
+    - vault/.vault_gameserver.yml
+    - vault/.vault_pitstop.yml
   roles:
     - maintenance_man
   tags:
