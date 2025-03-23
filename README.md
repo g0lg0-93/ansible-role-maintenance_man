@@ -1,9 +1,10 @@
 # the Maintenance Man
-Creating various roles to perform various tasks. 
+Creating various roles to perform various tasks, installs, plumbing, etc.
+Using this as a way to practice Ansible. 
 
-Currently we have:
+Current roles I've drawn up:
 * Perform Update & Reboots (if required)
-* Install unbound DNS
+* Install Fail2Ban
 
 ## Requirements
 * Ansible
